@@ -8,8 +8,17 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
+      "@styles": path.resolve(__dirname, "src/styles"),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@styles/index.scss" as *;\n`,
+      },
+    },
+  },
+  root: ".",
   plugins: [
     tanstackRouter({
       target: "react",

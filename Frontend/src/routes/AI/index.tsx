@@ -1,9 +1,9 @@
 import { MainLayout } from "@/layout/main";
-import { Home } from "@/pages/Home";
+import { AiPage } from "@/pages/AI";
 import { Header } from "@/widget/Header";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/AI/")({
   component: RouteComponent,
 });
 
@@ -11,7 +11,7 @@ function RouteComponent() {
   return (
     <MainLayout>
       <Header />
-      <Home />
+      <AiPage />
     </MainLayout>
   );
 }

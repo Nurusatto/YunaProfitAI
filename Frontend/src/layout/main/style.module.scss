@@ -1,0 +1,33 @@
+.MainLayout {
+  display: flex;
+  min-height: 100vh;
+  gap: rem(15);
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  > header {
+    flex: 0 0 20%;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    height: fit-content;
+
+    @include tablet {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+  }
+
+  > main {
+    flex: 1;
+    height: 5000px;
+    border-left: var(--border-1);
+
+    @include tablet {
+      border-left: none;
+      padding: 0;
+    }
+  }
+}

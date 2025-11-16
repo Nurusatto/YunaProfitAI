@@ -1,0 +1,26 @@
+.Header {
+  display: flex;
+  justify-content: end;
+  padding-block: rem(50);
+
+  &Link {
+    display: flex;
+    gap: rem(10);
+  }
+
+  &Item {
+    padding: rem(5);
+    transition: var(--transition-duration);
+
+    @include hover {
+      background-color: #0097fb65;
+      border-radius: var(--border-radius-md);
+    }
+  }
+
+  &List {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+  }
+}

@@ -1,0 +1,18 @@
+@use "functions.scss" as *;
+
+:root {
+  --border-radius-sm: #{rem(4)};
+  --border-radius-md: #{rem(8)};
+  --border-radius-lg: #{rem(16)};
+
+  --border-width-thin: #{rem(1)};
+  --border-width-medium: #{rem(2)};
+  --border-width-thick: #{rem(4)};
+
+  --border-style-default: solid;
+
+  --color-border: #2c2f36;
+
+  --border-1: var(--color-border) var(--border-style-default)
+    var(--border-width-thin);
+}
