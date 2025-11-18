@@ -1,14 +1,15 @@
 .MainLayout {
-  display: flex;
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: auto 1fr;
   gap: rem(15);
+  min-height: 100vh;
 
   @include tablet {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   > header {
-    flex: 0 0 20%;
     position: sticky;
     top: 0;
     align-self: flex-start;
@@ -21,9 +22,9 @@
   }
 
   > main {
-    flex: 1;
-    height: 5000px;
+    flex: 1 1 auto;
     border-left: var(--border-1);
+    overflow-y: auto;
 
     @include tablet {
       border-left: none;

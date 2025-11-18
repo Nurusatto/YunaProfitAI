@@ -1,7 +1,11 @@
+import { ChatAi } from "@/widget/ChatAI";
+
 export const AiPage = () => {
   return (
     <main>
-      <div>AI Page</div>
+      <div className="container">
+        <ChatAi />
+      </div>
     </main>
   );
 };

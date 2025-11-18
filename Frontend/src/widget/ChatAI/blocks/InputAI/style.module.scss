@@ -1,0 +1,62 @@
+.Wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  // position: sticky;
+  // bottom: 0;
+
+  position: fixed;
+  bottom: 0;
+  left: 60%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 800px;
+
+  z-index: 10;
+
+  @include tablet {
+    justify-content: center;
+    max-width: 370px;
+    left: 50%;
+  }
+
+  @include mobile {
+    max-width: 370px;
+    gap: 5;
+  }
+}
+
+.Input {
+  flex: 0 0 80%;
+  padding: 10px;
+  font-size: 16px;
+  border: var(--border-1);
+  background-color: var(--color-bg-alt);
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: var(--color-accent);
+
+  @include tablet {
+    flex: 0 0 90%;
+  }
+
+  @include mobile {
+    flex: 0 0 85%;
+  }
+}
+
+.Button {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 2%;
+  padding: 10px;
+  font-size: 16px;
+  border: var(--border-1);
+  background-color: var(--color-accent-alt);
+  border-radius: var(--border-radius-md);
+  box-sizing: border-box;
+
+  @include tablet {
+    flex: 0 0 10%;
+  }
+}

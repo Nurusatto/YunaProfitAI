@@ -1,0 +1,10 @@
+.Ai {
+  &Inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    padding-bottom: rem(50);
+    min-height: 100vh;
+  }
+}

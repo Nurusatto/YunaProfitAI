@@ -1,12 +1,12 @@
 .Header {
+  z-index: 999;
+  background-color: var(--color-bg-alt);
   &Inner {
     position: sticky;
     display: flex;
     justify-content: end;
     top: 0;
     padding-block: rem(10);
-    background-color: var(--color-bg-main);
-    z-index: var(--z-index-overlay);
   }
 
   &List {
@@ -52,7 +52,7 @@
     background-color: var(--color-bg-main);
     border-radius: var(--border-radius-md);
     border: none;
-    z-index: var(--z-index-overlay);
+    z-index: 999;
 
     @include hover {
       color: var(--color-primary-hover);
@@ -64,7 +64,7 @@
       background-color: currentColor;
       border-radius: 1rem;
       transition-duration: var(--transition-duration);
-
+      z-index: 999;
       &:last-child {
         align-self: end;
         width: 55%;

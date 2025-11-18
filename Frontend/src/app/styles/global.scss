@@ -11,6 +11,8 @@ body {
   background-color: var(--color-bg-main);
   color: var(--color-accent);
   font-family: var(--font-base);
+  height: 100%;
+  min-height: 100%;
 }
 
 a {
