@@ -1,10 +1,24 @@
 .Ai {
+  &Wrap {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: rem(10);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   &Inner {
     display: flex;
     flex-direction: column;
     position: relative;
+    flex: 1;
+    gap: rem(10);
+    padding-bottom: rem(60);
 
-    padding-bottom: rem(50);
-    min-height: 100vh;
+    height: calc(100vh - 60px);
   }
 }

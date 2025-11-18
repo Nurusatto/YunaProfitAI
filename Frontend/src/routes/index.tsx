@@ -1,4 +1,3 @@
-import { MainLayout } from "@/layout/main";
 import { Home } from "@/pages/Home";
 import { Header } from "@/widget/Header";
 import { createFileRoute } from "@tanstack/react-router";
@@ -9,9 +8,9 @@ export const Route = createFileRoute("/")({
 
 function RouteComponent() {
   return (
-    <MainLayout>
+    <>
       <Header />
       <Home />
-    </MainLayout>
+    </>
   );
 }

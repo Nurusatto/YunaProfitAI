@@ -1,18 +1,34 @@
 :root {
   --transition-duration: 0.2s;
 
-  --color-bg-main: #000000;
-  --color-bg-alt: #25282b;
+  //  Фоновые цвета
+  --color-bg-primary: #fcfcfd; /* основной фон страницы — чуть серый вместо яркого белого */
+  --color-bg-secondary: #f1f5f9; /* фоновые блоки / секции — очень мягкий голубой */
+  --color-bg-hover: #e4effb; /* hover для блоков — нежный голубой */
+  --color-bg-muted: #f7f9fc;
 
-  --color-accent: #e7e9ea;
-  --color-accent-alt: #1d9bf0;
-  --color-muted: #71767b;
+  //  Текст
+  --color-text-primary: #111827; /* основной текст */
+  --color-text-secondary: #6b7280; /* вторичный текст / подписи */
+  --color-text-inverse: #ffffff; /* текст на темном фоне */
+  --color-text-accent: #1d4ed8; /* для ссылок, акцентов */
 
-  --color-link: #66ccff;
+  //  Бордеры / разделители
+  --color-border-muted: #d1d5db; /* слабые линии */
 
-  --color-error: #cf6679;
-  --color-success: #4caf50;
-  --color-info: #2196f3;
+  //  Основные синие цвета
+  --color-blue-primary: #1d4ed8; /* основной синий */
+  --color-blue-light: #3b82f6; /* светлый синий / hover */
+  --color-blue-accent: #60a5fa; /* акцентные элементы / графики */
+
+  //  Акцентные цвета
+  --color-green: #10b981; /* успех / положительное */
+  --color-red: #ef4444; /* ошибки / предупреждения */
+  --color-yellow: #f59e0b; /* предупреждения / alert */
+
+  //  Градиенты
+  --gradient-blue: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 100%);
+  --gradient-blue-light: linear-gradient(90deg, #60a5fa 0%, #3b82f6 100%);
 
   --font-base: "Inter", sans-serif;
   --font-alt: "Montserrat", sans-serif;

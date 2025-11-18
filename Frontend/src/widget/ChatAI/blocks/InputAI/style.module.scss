@@ -2,26 +2,25 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  // position: sticky;
-  // bottom: 0;
-
   position: fixed;
-  bottom: 0;
-  left: 60%;
+  background-color: var(--color-bg-primary);
+  left: 50%;
   transform: translateX(-50%);
+  padding-block: rem(5);
+  bottom: rem(0);
   width: 100%;
-  max-width: 800px;
+  max-width: calc(100%);
+  justify-content: center;
 
   z-index: 10;
 
   @include tablet {
     justify-content: center;
-    max-width: 370px;
+    max-width: calc(100%);
     left: 50%;
   }
 
   @include mobile {
-    max-width: 370px;
     gap: 5;
   }
 }
@@ -37,12 +36,16 @@
   color: var(--color-accent);
 
   @include tablet {
-    flex: 0 0 90%;
+    flex: 0 0 70%;
   }
 
   @include mobile {
     flex: 0 0 85%;
   }
+}
+
+.Icon {
+  color: var(--color-blue-primary);
 }
 
 .Button {
@@ -55,6 +58,10 @@
   background-color: var(--color-accent-alt);
   border-radius: var(--border-radius-md);
   box-sizing: border-box;
+
+  @include hover {
+    transform: translateY(-3px);
+  }
 
   @include tablet {
     flex: 0 0 10%;

@@ -10,9 +10,12 @@ export const InputAI = ({ value, onChange, onSubmit }: InputAi) => {
         value={value}
         className={styles.Input}
         onChange={(e) => onChange(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") onSubmit?.();
+        }}
       />
-      <button onClick={onSubmit} className={styles.Button}>
-        <ArrowUp />
+      <button className={styles.Button} onClick={onSubmit}>
+        <ArrowUp className={styles.Icon} />
       </button>
     </div>
   );

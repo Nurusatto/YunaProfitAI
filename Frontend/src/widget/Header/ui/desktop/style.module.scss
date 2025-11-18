@@ -1,7 +1,12 @@
 .Header {
   display: flex;
-  justify-content: end;
-  padding-block: rem(50);
+  justify-content: center;
+  padding-block: rem(20);
+  border-bottom: var(--border-1);
+  position: sticky;
+  background-color: var(--color-bg-primary);
+  top: 0;
+  z-index: 100;
 
   &Link {
     display: flex;
@@ -9,18 +14,24 @@
   }
 
   &Item {
-    padding: rem(5);
+    padding: rem(10);
     transition: var(--transition-duration);
+    border: var(--border-1);
+    border-radius: var(--border-radius-md);
 
     @include hover {
-      background-color: #0097fb65;
-      border-radius: var(--border-radius-md);
+      background-color: var(--color-blue-light);
+      border: none;
+      transform: translateY(-3px);
+
+      .HeaderIcon {
+        color: var(--color-bg-hover);
+      }
     }
   }
 
   &List {
     display: flex;
-    flex-direction: column;
-    gap: rem(20);
+    gap: rem(30);
   }
 }

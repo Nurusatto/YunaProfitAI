@@ -16,3 +16,9 @@
   --border-1: var(--color-border) var(--border-style-default)
     var(--border-width-thin);
 }
+
+[data-theme="dark"] {
+  --color-border: #ffffff;
+  --border-1: var(--color-border) var(--border-style-default)
+    var(--border-width-thin);
+}

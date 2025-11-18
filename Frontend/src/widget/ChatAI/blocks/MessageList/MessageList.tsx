@@ -8,12 +8,19 @@ export const MessageList = ({ messages }: { messages: Message[] }) => {
       <div className={styles.MessageList}>
         {messages.map((msg, index) => (
           <div
-            key={index}
             className={
-              msg.sender === "user" ? styles.MessageUser : styles.MessageAI
+              `${styles.MessageWrap}` +
+              (msg.sender === "user" ? ` ${styles.User}` : "")
             }
           >
-            <ReactMarkdown>{msg.content}</ReactMarkdown>
+            <li
+              key={index}
+              className={
+                msg.sender === "user" ? styles.MessageUser : styles.MessageAI
+              }
+            >
+              <ReactMarkdown>{msg.content}</ReactMarkdown>
+            </li>
           </div>
         ))}
       </div>
