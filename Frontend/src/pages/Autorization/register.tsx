@@ -1,9 +1,10 @@
 import { AuthLayout } from "@/layout/authorization";
+import { Register } from "@/widget/register";
 
-export const AutorizationPage = () => {
+export const RegisterPage = () => {
   return (
     <AuthLayout>
-      <div>Autorization Page</div>
+      <Register />
     </AuthLayout>
   );
 };

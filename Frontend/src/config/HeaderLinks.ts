@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 
-import { Brain, House } from "lucide-react";
+import { Brain, ChartColumnIncreasing } from "lucide-react";
 
 interface props {
   name: string;
@@ -9,7 +9,7 @@ interface props {
 }
 
 export const HeaderLinks: props[] = [
-  { name: "Home", path: "/", icon: House },
+  { name: "Home", path: "/", icon: ChartColumnIncreasing },
   { name: "AI", path: "/AI", icon: Brain },
 ] as const;
 
