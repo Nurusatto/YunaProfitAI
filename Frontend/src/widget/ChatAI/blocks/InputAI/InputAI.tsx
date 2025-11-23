@@ -7,6 +7,7 @@ export const InputAI = ({ value, onChange, onSubmit }: InputAi) => {
     <div className={styles.Wrapper}>
       <input
         type="text"
+        placeholder="Что хотите обсудить?"
         value={value}
         className={styles.Input}
         onChange={(e) => onChange(e.target.value)}

@@ -25,13 +25,13 @@ export const Auth = () => {
       <form className={styles.AuthForm} onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
-          placeholder="Username"
+          placeholder="Почта"
           className={styles.AuthInput}
           {...register("email")}
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Пароль"
           className={styles.AuthInput}
           {...register("password")}
         />
