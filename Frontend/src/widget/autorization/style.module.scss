@@ -15,8 +15,19 @@
     font-size: rem(24);
   }
 
+  &Alert {
+    display: flex;
+    gap: rem(5);
+    flex-direction: column;
+  }
+
+  &Error {
+    color: var(--color-red);
+    font-size: rem(14);
+  }
+
   &Form {
-    gap: rem(20);
+    gap: rem(10);
     display: flex;
     flex-direction: column;
     width: 100%;

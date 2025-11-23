@@ -8,13 +8,13 @@ export const MessageList = ({ messages }: { messages: Message[] }) => {
       <div className={styles.MessageList}>
         {messages.map((msg, index) => (
           <div
+            key={index}
             className={
               `${styles.MessageWrap}` +
               (msg.sender === "user" ? ` ${styles.User}` : "")
             }
           >
             <li
-              key={index}
               className={
                 msg.sender === "user" ? styles.MessageUser : styles.MessageAI
               }
