@@ -26,6 +26,7 @@ export const Auth = () => {
   const onSubmit = (data: authType) =>
     mutate(data, {
       onSuccess: () => {
+        console.log(data)
         setInitial(true);
         navigate({ to: "/" });
       },

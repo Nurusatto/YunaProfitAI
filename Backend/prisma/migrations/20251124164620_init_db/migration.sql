@@ -21,7 +21,7 @@ CREATE TABLE "public"."finances" (
     "user_id" TEXT NOT NULL,
     "budjet" DECIMAL(65,30) NOT NULL DEFAULT 300000,
     "spent" DECIMAL(65,30) NOT NULL DEFAULT 0,
-    "remaining" DECIMAL(65,30) NOT NULL DEFAULT 0,
+    "remaining" DECIMAL(65,30) NOT NULL DEFAULT 300000,
     "savings" DECIMAL(65,30) NOT NULL DEFAULT 0,
 
     CONSTRAINT "finances_pkey" PRIMARY KEY ("id")

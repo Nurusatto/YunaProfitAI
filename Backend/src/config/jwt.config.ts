@@ -8,7 +8,6 @@ export async function getJwtConfig(
 		secret: configService.getOrThrow<string>('JWT_SECRET'),
 		signOptions: {
 			algorithm: 'HS256',
-            expiresIn: configService.getOrThrow('JWT_REFRESH_TOKEN_TTL'),
 		},
         verifyOptions: {
             algorithms: ['HS256'],

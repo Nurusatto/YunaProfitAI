@@ -30,7 +30,7 @@ model Finance {
 
   budjet    Decimal @default(300000)
   spent     Decimal @default(0)
-  remaining Decimal @default(0)
+  remaining Decimal @default(300000)
   savings   Decimal @default(0)
 
   investment       Investment?

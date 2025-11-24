@@ -38,7 +38,6 @@ export class AuthController {
     return await this.authService.login(res, dto);
   }
 
-  @Authorization()
   @Post('refresh')
   @HttpCode(HttpStatus.OK)
   async refresh(
@@ -55,7 +54,6 @@ export class AuthController {
     return this.authService.logout(res);
   }
 
-  @Authorization()
   @Get('me')
   @HttpCode(HttpStatus.OK)
   me(@Req() req: Request) {

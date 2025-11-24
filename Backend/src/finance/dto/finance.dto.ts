@@ -1,21 +1,25 @@
-import { Type } from "class-transformer";
-import { IsArray, IsNumber } from "class-validator";
-import { FinanceHistoryDto } from "./finance-history";
+import { Type } from 'class-transformer';
+import { IsArray, IsDecimal, IsString } from 'class-validator';
+import { FinanceHistoryDto } from './finance-history';
 
 export class FinanceDto {
-  @IsNumber()
-  budget?: number
+  @IsString()
+  @IsDecimal()
+  budjet: string;
 
-  @IsNumber()
-  spent?: number
+  @IsString()
+  @IsDecimal()
+  spent: string;
 
-  @IsNumber()
-  remaining?: number
+  @IsString()
+  @IsDecimal()
+  remaining: string;
 
-  @IsNumber()
-  savings?: number
+  @IsString()
+  @IsDecimal()
+  savings: string;
 
-  @IsNumber()
+  @IsString()
   @IsArray()
   @Type(() => FinanceHistoryDto)
   financeHistories?: FinanceHistoryDto[];

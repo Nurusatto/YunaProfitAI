@@ -1,10 +1,7 @@
 import { IsDecimal, IsString } from 'class-validator';
 
-export class FinanceHistoryDto {
+export class FinanceSavingsDto {
   @IsString()
-  category: string;
-
   @IsDecimal()
-  @IsString()
-  spent: string;
+  savings: string;
 }
