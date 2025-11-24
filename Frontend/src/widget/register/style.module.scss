@@ -1,0 +1,52 @@
+.Register {
+  &Wrap {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg-secondary);
+    padding: rem(20);
+  }
+
+  &Title {
+    display: flex;
+    justify-content: center;
+    padding-block: rem(10);
+    font-size: rem(24);
+  }
+
+  &Form {
+    display: flex;
+    flex-direction: column;
+    gap: rem(15);
+  }
+
+  &Input {
+    width: 100%;
+    border-radius: var(--border-radius-sm);
+    border: var(--border-1);
+    padding: rem(10);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-secondary);
+    transition: var(--transition-duration);
+
+    &:focus {
+      border-color: var(--color-blue-primary);
+      box-shadow: 0 0 8px rgba(29, 155, 240, 0.3);
+      outline: none;
+    }
+  }
+
+  &Btn {
+    padding: rem(10);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-blue-accent);
+    color: var(--color-text-inverse);
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-blue-light);
+      transform: translateY(-3px);
+    }
+  }
+}

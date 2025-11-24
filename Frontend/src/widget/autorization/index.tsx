@@ -1,13 +1,19 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import styles from "./style.module.scss";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "@/shared/schema/login";
 import type { authType } from "./model/type";
 import { useLogin } from "@/widget/autorization/model/query";
+import { useUserStore } from "@/store/useUserStore";
+import { useState } from "react";
 
 export const Auth = () => {
   const { mutate } = useLogin();
+  const [alert, setAlert] = useState("");
+  const navigate = useNavigate({ from: "/auth" });
+  const setInitial = useUserStore((state) => state.setInitial);
+
   const {
     register,
     handleSubmit,
@@ -17,7 +23,16 @@ export const Auth = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit = (data: authType) => mutate(data);
+  const onSubmit = (data: authType) =>
+    mutate(data, {
+      onSuccess: () => {
+        setInitial(true);
+        navigate({ to: "/" });
+      },
+      onError: (data) => {
+        setAlert(data.response?.data?.message || "Something went wrong");
+      },
+    });
 
   return (
     <div className={styles.Auth}>
@@ -36,6 +51,7 @@ export const Auth = () => {
           {...register("password")}
         />
         <div className={styles.AuthAlert}>
+          {alert && <span className={styles.AuthError}>{alert}</span>}
           {errors.email && (
             <span className={styles.AuthError}>{errors.email.message}</span>
           )}
