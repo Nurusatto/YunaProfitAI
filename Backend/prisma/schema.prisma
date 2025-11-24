@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -14,7 +8,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
@@ -22,6 +15,64 @@ model User {
   email     String   @unique
   password  String
   name      String?  @default("User")
+  finance   Finance?
 
   @@map("users")
+}
+
+model Finance {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @unique @map("user_id")
+
+  budjet    Decimal @default(300000)
+  spent     Decimal @default(0)
+  remaining Decimal @default(0)
+  savings   Decimal @default(0)
+
+  investment       Investment?
+  financeHistories FinanceHistory[]
+
+  @@map("finances")
+}
+
+model FinanceHistory {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  finance   Finance @relation(fields: [financeId], references: [id], onDelete: Cascade)
+  financeId String  @map("finance_id")
+
+  category String
+  spent    Decimal
+
+  @@map("finance_histories")
+}
+
+model Investment {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  finance   Finance @relation(fields: [financeId], references: [id], onDelete: Cascade)
+  financeId String  @unique @map("finance_id")
+
+  investment        Decimal           @default(0)
+  investmentIncome  Decimal           @default(0) @map("investment_income")
+  investmentPrecent Int               @default(0) @map("investment_precent")
+  investmentPeriod  InvestmentPeriod? @map("investment_period")
+  investmentDate    DateTime?         @map("investment_date")
+
+  @@map("investment")
+}
+
+enum InvestmentPeriod {
+  DAY
+  WEEK
+  MONTH
+  YEAR
 }
