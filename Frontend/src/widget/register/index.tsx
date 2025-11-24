@@ -6,10 +6,13 @@ import { useUserStore } from "@/store/useUserStore";
 import { useNavigate } from "@tanstack/react-router";
 
 import styles from "@/widget/register/style.module.scss";
+import type { authType } from "./model/type";
+import { useState } from "react";
 
 export const Register = () => {
   const setAccessToken = useUserStore((state) => state.setAccessToken);
   const navigate = useNavigate({ from: "/auth" });
+  const [alert, setAlert] = useState<string | undefined>("");
 
   const { handleSubmit, register } = useForm({
     mode: "onSubmit",
@@ -18,13 +21,16 @@ export const Register = () => {
 
   const { mutate } = useRegister();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: authType) => {
     console.log(data);
     mutate(data, {
       onSuccess: (data) => {
         console.log("Registration successful:", data);
         setAccessToken(data.accessToken);
         navigate({ to: "/" });
+      },
+      onError: (error) => {
+        setAlert(error.response?.data?.message || "something went wrong");
       },
     });
   };
@@ -51,7 +57,12 @@ export const Register = () => {
           {...register("password")}
           className={styles.RegisterInput}
         />
-        <div className={styles.RegisterAlert}></div>
+        {alert && (
+          <div className={styles.RegisterAlert}>
+            <span className={styles.RegisterError}>{alert}</span>
+          </div>
+        )}
+
         <button type="submit" className={styles.RegisterBtn}>
           Register
         </button>

@@ -19,6 +19,11 @@
     gap: rem(15);
   }
 
+  &Error {
+    color: var(--color-red);
+    font-size: rem(14);
+  }
+
   &Input {
     width: 100%;
     border-radius: var(--border-radius-sm);
