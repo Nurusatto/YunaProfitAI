@@ -1,14 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useUserStore } from "@/store/useUserStore";
 import { FetchMe } from "@/shared/api/fetchMe";
 
 export function AppInit() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [token, setToken] = useState();
-
-  const setIsInitialized = useUserStore((s) => s.setInitial);
-  const state = useUserStore.getState();
+  const setIsInitialized = useUserStore((s) => s.setIsInitialized);
+  const setToken = useUserStore((s) => s.setAccessToken);
 
   const { data, isError } = useQuery({
     queryKey: ["me"],
@@ -17,17 +14,17 @@ export function AppInit() {
   });
 
   useEffect(() => {
-    if (data || isError) {
+    if (data !== undefined) {
       setIsInitialized(true);
-      console.log(data);
-      console.log(state);
 
-      if (data?.token) {
-        setToken(data?.token);
-        console.log(data);
+      if (!data) {
+        setToken(null);
+        return;
       }
+
+      setToken(data?.token.accessToken);
     }
-  }, [data, isError, setIsInitialized, state]);
+  }, [data, isError, setIsInitialized, setToken]);
 
   return null;
 }

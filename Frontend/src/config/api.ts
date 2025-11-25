@@ -16,4 +16,12 @@ export const api = {
   Token: {
     UpdateToken: "/api/auth/refresh",
   },
+
+  finance: {
+    get: "/api/finance",
+
+    category: "/api/spend",
+    save: "/api/save",
+    budjet: "/api/budjet",
+  },
 };

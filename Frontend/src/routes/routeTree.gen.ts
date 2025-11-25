@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './__root'
 import { Route as IndexRouteImport } from './index'
 import { Route as RegisterIndexRouteImport } from './register/index'
+import { Route as FinanceIndexRouteImport } from './finance/index'
 import { Route as AuthIndexRouteImport } from './auth/index'
 import { Route as AIIndexRouteImport } from './AI/index'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const RegisterIndexRoute = RegisterIndexRouteImport.update({
   id: '/register/',
   path: '/register/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinanceIndexRoute = FinanceIndexRouteImport.update({
+  id: '/finance/',
+  path: '/finance/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthIndexRoute = AuthIndexRouteImport.update({
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/AI': typeof AIIndexRoute
   '/auth': typeof AuthIndexRoute
+  '/finance': typeof FinanceIndexRoute
   '/register': typeof RegisterIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/AI': typeof AIIndexRoute
   '/auth': typeof AuthIndexRoute
+  '/finance': typeof FinanceIndexRoute
   '/register': typeof RegisterIndexRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,22 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/AI/': typeof AIIndexRoute
   '/auth/': typeof AuthIndexRoute
+  '/finance/': typeof FinanceIndexRoute
   '/register/': typeof RegisterIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/AI' | '/auth' | '/register'
+  fullPaths: '/' | '/AI' | '/auth' | '/finance' | '/register'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/AI' | '/auth' | '/register'
-  id: '__root__' | '/' | '/AI/' | '/auth/' | '/register/'
+  to: '/' | '/AI' | '/auth' | '/finance' | '/register'
+  id: '__root__' | '/' | '/AI/' | '/auth/' | '/finance/' | '/register/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AIIndexRoute: typeof AIIndexRoute
   AuthIndexRoute: typeof AuthIndexRoute
+  FinanceIndexRoute: typeof FinanceIndexRoute
   RegisterIndexRoute: typeof RegisterIndexRoute
 }
 
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/register'
       fullPath: '/register'
       preLoaderRoute: typeof RegisterIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finance/': {
+      id: '/finance/'
+      path: '/finance'
+      fullPath: '/finance'
+      preLoaderRoute: typeof FinanceIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth/': {
@@ -106,6 +123,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AIIndexRoute: AIIndexRoute,
   AuthIndexRoute: AuthIndexRoute,
+  FinanceIndexRoute: FinanceIndexRoute,
   RegisterIndexRoute: RegisterIndexRoute,
 }
 export const routeTree = rootRouteImport

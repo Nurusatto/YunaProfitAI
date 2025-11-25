@@ -3,10 +3,10 @@ import type { userType } from "@/types/userResponse.type";
 
 type authStore = {
   user: userType | null;
-  initial: boolean;
+  isInitialized: boolean;
   token: string | null;
 
-  setInitial: (state: boolean) => void;
+  setIsInitialized: (state: boolean) => void;
   setUser: (data: userType | null) => void;
   setAccessToken: (token: string | null) => void;
   logOut: () => void;
@@ -14,10 +14,10 @@ type authStore = {
 
 export const useUserStore = create<authStore>()((set) => ({
   user: null,
-  initial: false,
+  isInitialized: false,
   token: null,
 
-  setInitial: (state) => set({ initial: state }),
+  setIsInitialized: (state) => set({ isInitialized: state }),
   setUser: (data) => set({ user: data }),
   setAccessToken: (token) => set({ token }),
   logOut: () => set({ user: null, token: null }),

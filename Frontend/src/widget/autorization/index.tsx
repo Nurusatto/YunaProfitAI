@@ -12,7 +12,8 @@ export const Auth = () => {
   const { mutate } = useLogin();
   const [alert, setAlert] = useState("");
   const navigate = useNavigate({ from: "/auth" });
-  const setInitial = useUserStore((state) => state.setInitial);
+  const setInitial = useUserStore((state) => state.setIsInitialized);
+  const setToken = useUserStore((s) => s.setAccessToken);
 
   const {
     register,
@@ -25,10 +26,11 @@ export const Auth = () => {
 
   const onSubmit = (data: authType) =>
     mutate(data, {
-      onSuccess: () => {
-        console.log(data)
+      onSuccess: (data) => {
+        console.log(data, "succes");
         setInitial(true);
-        navigate({ to: "/" });
+        setToken(data.accessToken);
+        setTimeout(() => navigate({ to: "/" }), 1);
       },
       onError: (data) => {
         setAlert(data.response?.data?.message || "Something went wrong");
