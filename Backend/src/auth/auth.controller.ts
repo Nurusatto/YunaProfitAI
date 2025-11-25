@@ -13,7 +13,7 @@ import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { LoginAuthDto } from './dto/login-auth.dto';
 import type { Request, Response } from 'express';
-import { AuthGuard } from '@nestjs/passport';
+import { GetUser } from 'src/decorators/get-user.decorator';
 import { Authorization } from 'src/decorators/authorization.decarator';
 
 @Controller('auth')
@@ -47,16 +47,16 @@ export class AuthController {
     return await this.authService.refresh(req, res);
   }
 
-  @Authorization()
   @Post('logout')
   @HttpCode(HttpStatus.OK)
   logout(@Res({ passthrough: true }) res: Response) {
     return this.authService.logout(res);
   }
 
+  @Authorization()
   @Get('me')
   @HttpCode(HttpStatus.OK)
   me(@Req() req: Request) {
-    return req.user;
+    return req.user
   }
 }

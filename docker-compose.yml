@@ -20,7 +20,7 @@ services:
       - ./Backend/.env
     depends_on:
       - db
-    command: sh -c "npx prisma migrate deploy && npm run start:dev -- --watch --poll=1000"
+    command: sh -c "npx prisma migrate deploy && npm run start:dev:docker"
     restart: unless-stopped
 
   db:
