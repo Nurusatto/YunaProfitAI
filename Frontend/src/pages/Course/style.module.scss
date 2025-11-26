@@ -1,0 +1,122 @@
+.Course {
+  padding: rem(20);
+
+  &Title {
+    font-size: rem(30);
+    font-weight: 700;
+  }
+
+  &SubTitle {
+    margin-bottom: rem(15);
+  }
+
+  &Sort {
+    display: flex;
+    gap: rem(10);
+    margin-bottom: rem(20);
+
+    &Item {
+      padding: rem(8) rem(10) rem(8) rem(10);
+      background-color: var(--color-bg-secondary);
+      border-radius: var(--border-radius-sm);
+      transition: var(--transition-duration);
+      cursor: pointer;
+
+      @include hover {
+        transform: translateY(-3px);
+      }
+    }
+
+    &ItemActive {
+      padding: rem(8) rem(10) rem(8) rem(10);
+      background-color: var(--color-bg-hover);
+      border-radius: var(--border-radius-sm);
+      cursor: pointer;
+    }
+  }
+
+  &List {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(10);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &Item {
+    padding: rem(15);
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--box-shadow-card);
+    display: flex;
+    transition: var(--transition-duration);
+
+    @include hover {
+      transform: scale(0.98);
+    }
+  }
+
+  &Content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: space-around;
+  }
+
+  &Icon {
+    color: var(--color-blue-accent);
+  }
+
+  &Name {
+    font-size: rem(18);
+    margin-bottom: rem(8);
+  }
+
+  &Lesson {
+    color: var(--color-blue-accent);
+    margin-bottom: rem(10);
+  }
+
+  &Btn {
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-blue-accent);
+    padding: rem(8);
+    color: var(--color-text-inverse);
+    transition: var(--transition-duration);
+    max-width: 115px;
+
+    @include hover {
+      background-color: var(--color-blue-light);
+      transform: translateY(-3px);
+    }
+  }
+
+  &Progress {
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(10);
+
+    span {
+      font-size: rem(14);
+    }
+  }
+
+  &ProgressBar {
+    border-radius: var(--border-radius-lg);
+    background-color: var(--color-bg-hover);
+    width: 80%;
+    height: 5px;
+    margin-right: rem(10);
+
+    &::before {
+      content: "";
+      display: block;
+      border-radius: var(--border-radius-lg);
+      background-color: var(--color-blue-accent);
+      left: 0;
+      height: 5px;
+      width: 40%;
+    }
+  }
+}

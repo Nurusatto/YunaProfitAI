@@ -149,7 +149,7 @@ export class AuthService {
       httpOnly: true,
       expires,
       secure: false,
-      sameSite: 'lax',
+      sameSite: 'none',
     });
   }
 }

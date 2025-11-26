@@ -1,0 +1,61 @@
+.Lesson {
+  margin-top: rem(29);
+
+  &Title {
+    font-size: rem(25);
+  }
+
+  &Block {
+    display: grid;
+    column-gap: rem(15);
+    grid-template-columns: 1fr 2fr;
+
+    &Title {
+      font-size: rem(20);
+      margin-bottom: rem(10);
+    }
+  }
+
+  &BlockItem {
+    border: 1px solid var(--color-border-muted);
+    padding: rem(15);
+    border-radius: var(--border-radius-sm);
+  }
+
+  &List {
+    list-style: none;
+
+    &Item {
+      display: flex;
+      align-items: center;
+      padding: rem(10) rem(5);
+      cursor: pointer;
+    }
+
+    &ItemActive {
+      display: flex;
+      align-items: center;
+      padding: rem(10) rem(5);
+      background-color: rgb(213, 217, 255);
+      border-radius: var(--border-radius-md);
+      cursor: pointer;
+    }
+  }
+
+  &IconSuccess {
+    margin-right: rem(8);
+    color: green;
+  }
+
+  &Icon {
+    margin-right: rem(8);
+    color: gray;
+  }
+}
+
+.dispaly {
+  display: block;
+}
+.displayNone {
+  display: none;
+}

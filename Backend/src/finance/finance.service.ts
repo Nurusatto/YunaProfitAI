@@ -35,11 +35,9 @@ export class FinanceService {
     })) as Finance;
 
     const isMoreThanBudjet = Decimal(spent).gt(finance.budjet);
-    const isMoreThanRemainings = finance.remaining
-      .plus(spent)
-      .gt(finance.budjet);
 
-    if (isMoreThanBudjet || isMoreThanRemainings) {
+
+    if (isMoreThanBudjet) {
       throw new ConflictException(
         'Вы не можете потратить денег больше чем имеете в бюджете!',
       );

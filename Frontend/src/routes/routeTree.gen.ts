@@ -11,9 +11,14 @@
 import { Route as rootRouteImport } from './__root'
 import { Route as IndexRouteImport } from './index'
 import { Route as RegisterIndexRouteImport } from './register/index'
+<<<<<<< Updated upstream
 import { Route as FinanceIndexRouteImport } from './finance/index'
+=======
+import { Route as CourseIndexRouteImport } from './course/index'
+>>>>>>> Stashed changes
 import { Route as AuthIndexRouteImport } from './auth/index'
 import { Route as AIIndexRouteImport } from './AI/index'
+import { Route as CourseLessonIndexRouteImport } from './course/lesson/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -25,9 +30,15 @@ const RegisterIndexRoute = RegisterIndexRouteImport.update({
   path: '/register/',
   getParentRoute: () => rootRouteImport,
 } as any)
+<<<<<<< Updated upstream
 const FinanceIndexRoute = FinanceIndexRouteImport.update({
   id: '/finance/',
   path: '/finance/',
+=======
+const CourseIndexRoute = CourseIndexRouteImport.update({
+  id: '/course/',
+  path: '/course/',
+>>>>>>> Stashed changes
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthIndexRoute = AuthIndexRouteImport.update({
@@ -40,43 +51,82 @@ const AIIndexRoute = AIIndexRouteImport.update({
   path: '/AI/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CourseLessonIndexRoute = CourseLessonIndexRouteImport.update({
+  id: '/course/lesson/',
+  path: '/course/lesson/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/AI': typeof AIIndexRoute
   '/auth': typeof AuthIndexRoute
+<<<<<<< Updated upstream
   '/finance': typeof FinanceIndexRoute
+=======
+  '/course': typeof CourseIndexRoute
+>>>>>>> Stashed changes
   '/register': typeof RegisterIndexRoute
+  '/course/lesson': typeof CourseLessonIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/AI': typeof AIIndexRoute
   '/auth': typeof AuthIndexRoute
+<<<<<<< Updated upstream
   '/finance': typeof FinanceIndexRoute
+=======
+  '/course': typeof CourseIndexRoute
+>>>>>>> Stashed changes
   '/register': typeof RegisterIndexRoute
+  '/course/lesson': typeof CourseLessonIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/AI/': typeof AIIndexRoute
   '/auth/': typeof AuthIndexRoute
+<<<<<<< Updated upstream
   '/finance/': typeof FinanceIndexRoute
+=======
+  '/course/': typeof CourseIndexRoute
+>>>>>>> Stashed changes
   '/register/': typeof RegisterIndexRoute
+  '/course/lesson/': typeof CourseLessonIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
+<<<<<<< Updated upstream
   fullPaths: '/' | '/AI' | '/auth' | '/finance' | '/register'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/AI' | '/auth' | '/finance' | '/register'
   id: '__root__' | '/' | '/AI/' | '/auth/' | '/finance/' | '/register/'
+=======
+  fullPaths: '/' | '/AI' | '/auth' | '/course' | '/register' | '/course/lesson'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/AI' | '/auth' | '/course' | '/register' | '/course/lesson'
+  id:
+    | '__root__'
+    | '/'
+    | '/AI/'
+    | '/auth/'
+    | '/course/'
+    | '/register/'
+    | '/course/lesson/'
+>>>>>>> Stashed changes
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AIIndexRoute: typeof AIIndexRoute
   AuthIndexRoute: typeof AuthIndexRoute
+<<<<<<< Updated upstream
   FinanceIndexRoute: typeof FinanceIndexRoute
+=======
+  CourseIndexRoute: typeof CourseIndexRoute
+>>>>>>> Stashed changes
   RegisterIndexRoute: typeof RegisterIndexRoute
+  CourseLessonIndexRoute: typeof CourseLessonIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -95,11 +145,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegisterIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+<<<<<<< Updated upstream
     '/finance/': {
       id: '/finance/'
       path: '/finance'
       fullPath: '/finance'
       preLoaderRoute: typeof FinanceIndexRouteImport
+=======
+    '/course/': {
+      id: '/course/'
+      path: '/course'
+      fullPath: '/course'
+      preLoaderRoute: typeof CourseIndexRouteImport
+>>>>>>> Stashed changes
       parentRoute: typeof rootRouteImport
     }
     '/auth/': {
@@ -116,6 +174,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AIIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/course/lesson/': {
+      id: '/course/lesson/'
+      path: '/course/lesson'
+      fullPath: '/course/lesson'
+      preLoaderRoute: typeof CourseLessonIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -123,8 +188,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AIIndexRoute: AIIndexRoute,
   AuthIndexRoute: AuthIndexRoute,
+<<<<<<< Updated upstream
   FinanceIndexRoute: FinanceIndexRoute,
+=======
+  CourseIndexRoute: CourseIndexRoute,
+>>>>>>> Stashed changes
   RegisterIndexRoute: RegisterIndexRoute,
+  CourseLessonIndexRoute: CourseLessonIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
